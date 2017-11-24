@@ -15,3 +15,11 @@ go build -o shorten && ./shorten
 ```
 
 And follow the instructions to generate your shortened URLs. Enjoy!
+
+## Test
+
+To test the utility, enter the directory and run:
+
+```
+go test -o shorten && ./shorten
+```
