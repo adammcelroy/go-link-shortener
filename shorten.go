@@ -47,26 +47,26 @@ func shorten(link string, provider string, channel chan string) {
 
 	client := &http.Client{}
 	res, err := client.Do(req)
-	panicIfErrors(err)
+	panicIfError(err)
 	defer res.Body.Close()
 
 	body, err := ioutil.ReadAll(res.Body)
-	panicIfErrors(err)
+	panicIfError(err)
 
 	if provider == API_URL_GOOGLE {
 		var google GoogleShortenedLink
 		err = json.Unmarshal(body, &google)
-		panicIfErrors(err)
+		panicIfError(err)
 		channel <- google.Value
 	} else if provider == API_URL_BITLY {
 		var bitly BitlyShortenedLink
 		err = json.Unmarshal(body, &bitly)
-		panicIfErrors(err)
+		panicIfError(err)
 		channel <- bitly.Data.Value
 	} else if provider == API_URL_TINYCC {
 		var tinycc TinyccShortenedLink
 		err = json.Unmarshal(body, &tinycc)
-		panicIfErrors(err)
+		panicIfError(err)
 		channel <- tinycc.Data.Value
 	}
 }

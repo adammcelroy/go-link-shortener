@@ -16,7 +16,7 @@ func enforceProtocol(link string) string {
 	return link
 }
 
-func panicIfErrors(err error) {
+func panicIfError(err error) {
 	if err != nil {
 		panic(err)
 	}
