@@ -7,11 +7,8 @@ var API_URL_BITLY = ("https://api-ssl.bitly.com/v3/shorten?login=" + API_USER_BI
 var API_URL_TINYCC = ("http://tiny.cc/?c=rest_api&m=shorten&version=2.0.3&login=" + API_USER_TINYCC + "&apiKey=" + API_KEY_TINYCC)
 
 func main() {
-
 	var link string
-
 	channel := make(chan string)
-
 	providers := []string{
 		API_URL_GOOGLE,
 		API_URL_BITLY,
@@ -19,8 +16,8 @@ func main() {
 	}
 
 	fmt.Print("\nEnter a link to shorten: ")
-	fmt.Scanln(&link)
 
+	fmt.Scanln(&link)
 	link = enforceProtocol(link)
 
 	for _, provider := range providers {
