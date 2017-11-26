@@ -42,7 +42,8 @@ func shorten(link string, provider string, channel chan string) {
 		for key, value := range requestData {
 			requestDataForGet += ("&" + key + "=" + value)
 		}
-		req, err = http.NewRequest(requestType, (provider + requestDataForGet), bytes.NewBuffer([]byte{}))
+		buf := []byte{}
+		req, err = http.NewRequest(requestType, (provider + requestDataForGet), bytes.NewBuffer(buf))
 	}
 
 	client := &http.Client{}

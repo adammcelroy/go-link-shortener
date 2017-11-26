@@ -2,13 +2,12 @@ package main
 
 import "fmt"
 
-const (
-	API_URL_GOOGLE = ("https://www.googleapis.com/urlshortener/v1/url?key=" + API_KEY_GOOGLE)
-	API_URL_BITLY  = ("https://api-ssl.bitly.com/v3/shorten?login=" + API_USER_BITLY + "&apiKey=" + API_KEY_BITLY)
-	API_URL_TINYCC = ("http://tiny.cc/?c=rest_api&m=shorten&version=2.0.3&login=" + API_USER_TINYCC + "&apiKey=" + API_KEY_TINYCC)
-)
+var API_URL_GOOGLE = ("https://www.googleapis.com/urlshortener/v1/url?key=" + API_KEY_GOOGLE)
+var API_URL_BITLY = ("https://api-ssl.bitly.com/v3/shorten?login=" + API_USER_BITLY + "&apiKey=" + API_KEY_BITLY)
+var API_URL_TINYCC = ("http://tiny.cc/?c=rest_api&m=shorten&version=2.0.3&login=" + API_USER_TINYCC + "&apiKey=" + API_KEY_TINYCC)
 
 func main() {
+
 	var link string
 
 	channel := make(chan string)
